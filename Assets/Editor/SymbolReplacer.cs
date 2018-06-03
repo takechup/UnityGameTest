@@ -34,8 +34,8 @@ public class SymbolReplacer : UnityEditor.AssetModificationProcessor {
         List<string> array = path.Split('/').ToList();
         index = array.LastIndexOf("Scripts");
         if (index >= 0) {   // 見つかった場合
-            //array[index] = "App";            // namespace用にScriptsをAppに（これは好み）
-            array.RemoveRange(0, index);     // App（Scripsts）上位を削除
+            array[index] = "App";            // namespace用にScriptsをAppに（これは好み）
+            array.RemoveRange(0, index + 1);     // App（Scripsts）上位を削除
             array.Remove(array.Last());      // ファイル名部分を削除
             
             string pathBelowScripts = string.Join(".", array.ToArray());    // ドットでつなげる
