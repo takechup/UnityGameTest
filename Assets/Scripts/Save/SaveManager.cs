@@ -17,6 +17,12 @@ namespace Take.Save
 			mPikachu.Initialize();
 			mPikachu = SaveUtil.GetObject<Pikachu>("Pikachu");
 			//SaveUtil.SetObject<Pikachu>("Pikachu", pika);
+
+			mMasterDataRepository = Resources.Load<MasterDataRepository>("MasterDataRepository");
+
+			Item.Item item = new Item.Item();
+			item.Initialize(mMasterDataRepository.GetMstTest(1));
+
 		}
 
 		/// アクセサ
@@ -25,8 +31,15 @@ namespace Take.Save
 			return mPikachu;
 		}
 
+		public MasterDataRepository MasterDataRepository()
+		{
+			return mMasterDataRepository;
+		}
+
 		/// -------------------------------------------------
 		Pikachu mPikachu;
+
+		MasterDataRepository mMasterDataRepository;
 
 	}
 }
