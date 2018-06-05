@@ -13,6 +13,7 @@ namespace Take.Scn.Main
         /// データ
         /// @note これはInspectorで制御したい
         public LayerMask collisionMask;
+        public CollisionInfo collisions;
 
         /// -------------------------------------------------------
         void Start() 
@@ -29,6 +30,8 @@ namespace Take.Scn.Main
         /// -------------------------------------------------------
         public void Move(Vector3 aVelocity) {
             UpdateRaycastOrigins ();
+            collisions.Reset ();
+
             if (aVelocity.x != 0) {
                 HorizontalCollisions (ref aVelocity);
             }
@@ -54,6 +57,9 @@ namespace Take.Scn.Main
                 if (hit) {
                     velocity.x = (hit.distance - fSkinWidth) * directionX;
                     rayLength = hit.distance;
+
+                    collisions.left = directionX == -1;
+                    collisions.right = directionX == 1;
                 }
             }
         }
@@ -73,6 +79,9 @@ namespace Take.Scn.Main
                 if (hit) {
                     velocity.y = (hit.distance - fSkinWidth) * directionY;
                     rayLength = hit.distance;
+
+                    collisions.below = directionY == -1;
+                    collisions.above = directionY == 1;
                 }
             }
         }
@@ -104,6 +113,18 @@ namespace Take.Scn.Main
         private struct RaycastOrigins {
             public Vector2 topLeft, topRight;
             public Vector2 bottomLeft, bottomRight;
+        }
+
+        public struct CollisionInfo 
+        {
+            public bool above, below;
+            public bool left, right;
+
+            public void Reset() 
+            {
+                above = below = false;
+                left = right = false;
+            }
         }
 
 
