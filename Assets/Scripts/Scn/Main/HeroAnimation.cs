@@ -24,6 +24,11 @@ namespace Take.Scn.Main
 		public void Update()
 		{
 			StopAll();
+
+			if(Input.GetKeyDown(KeyCode.UpArrow))
+			{
+				StartChange();
+			}
 		
 			// 右
 			if(mHero.Velocity().x > thresholdWalk)
@@ -100,6 +105,8 @@ namespace Take.Scn.Main
 		private void StopJump()  { mHero.Animator().SetBool("Jump", false); }
 		private void StartFall() { mHero.Animator().SetBool("Fall", true); }
 		private void StopFall()  { mHero.Animator().SetBool("Fall", false); }
+
+		private void StartChange() { mHero.Animator().SetTrigger("Change"); }
 
 		private void StopAll()
 		{
