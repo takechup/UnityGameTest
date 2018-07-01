@@ -20,7 +20,7 @@ namespace Take.Scn.Station
 
 		private void OnClickScroll()
 		{
-			SceneManager.LoadScene("SampleScene");
+			SceneManager.LoadScene("ScrollTest");
 		}
 
 		/// ---------------------------------------

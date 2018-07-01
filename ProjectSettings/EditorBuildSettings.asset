@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Station.unity
+    guid: 7ff55e741c0aad54baa4bfb8404c6769
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/UltimateIsometricToolkit/Scenes/SimpleIsoObjectController_Example.unity
+    path: Assets/External/UltimateIsometricToolkit/Scenes/SimpleIsoObjectController_Example.unity
     guid: 76a3991224b382d4a91185e1b3fcc080
+  - enabled: 1
+    path: Assets/Scenes/ScrollTest.unity
+    guid: 8e83d87f65cf66b4099d2636de36bc5f
   m_configObjects: {}
