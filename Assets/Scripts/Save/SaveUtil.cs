@@ -4,6 +4,7 @@ namespace Take.Save
 {
 	/// データ保存用便利関数
 	public class SaveUtil {
+		
 
 		/// 指定されたオブジェクトの情報を保存
 		public static void SetObject<T>( string key, T obj)
